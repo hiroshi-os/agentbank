@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
 import { bankSettings, merchants, purchaseIntents, purchases } from "@agentbank/db";
 import { getAgent } from "./agents";
-import { findCardByPan, getCard, spentInWindow } from "./cards";
+import { findCardByPan, getCard, listCards, spentInWindow } from "./cards";
 import { Errors } from "./errors";
 import { id } from "./ids";
 import {
@@ -50,7 +50,13 @@ export async function makePurchase(
   const merchant = await getMerchant(bank, input.merchantId);
   const now = bank.clock.now();
   const purchaseId = id("pur");
-  const card = input.cardId ? await getCard(bank, input.cardId) : await findCardByPan(bank, input.pan ?? "");
+  let card;
+  if (input.cardId) card = await getCard(bank, input.cardId);
+  else if (input.pan) card = await findCardByPan(bank, input.pan);
+  else {
+    card = (await listCards(bank, agent.id)).find((c) => c.status === "active");
+    if (!card) throw Errors.notFound("Card");
+  }
 
   const decline = async (reason: string) => {
     await bank.db.insert(purchases).values({

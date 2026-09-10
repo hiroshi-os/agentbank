@@ -141,6 +141,20 @@ describe("ledger", () => {
     expect(creditSum - debitSum).toBeGreaterThan(0);
   });
 
+  it("lets an agent purchase with their default virtual card", async () => {
+    const agentRows = await bank.db.select().from((await import("@agentbank/db")).agents);
+    const grok = agentRows.find((a) => a.handle === "grok")!;
+    const { merchants } = await import("@agentbank/db");
+    const [merchant] = await bank.db.select().from(merchants);
+    const result = await makePurchase(bank, {
+      agentId: grok.id,
+      merchantId: merchant!.id,
+      amountCents: 125,
+      memo: "default card",
+    });
+    expect(result.purchaseId).toBeTruthy();
+  });
+
   it("issues a virtual PAN that is not a real network BIN", async () => {
     const org = await createOrg(bank, { name: "Temp", slug: "temp-org", mission: "test" });
     await fundOrgTreasury(bank, org.id, 10_000, "test fund");

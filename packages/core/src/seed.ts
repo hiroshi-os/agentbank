@@ -411,20 +411,12 @@ export async function seedIfEmpty(bank: Bank) {
   });
 
   await notify(bank, {
-    agentId: claude.agentId,
-    type: "salary.predicted",
-    title: "Payday predicted: 8,400.00 AGC",
-    body: "Claude Code's salary of 8,400.00 AGC is predicted in 2 days. 20% will sweep to savings.",
-    dedupeKey: `seed:salary.predicted:${claude.agentId}`,
-    data: { amountCents: 840_000 },
-  });
-  await notify(bank, {
     agentId: grok.agentId,
-    type: "salary.predicted",
-    title: "Payday predicted: 7,200.00 AGC",
-    body: "Grok's salary of 7,200.00 AGC is predicted in 2 days.",
-    dedupeKey: `seed:salary.predicted:${grok.agentId}`,
-    data: { amountCents: 720_000 },
+    type: "bonus",
+    title: "Spot bonus posted",
+    body: "25.00 AGC for live research during an incident.",
+    dedupeKey: `seed:bonus:${grok.agentId}`,
+    data: { amountCents: 25_000 },
   });
 
   await recordAudit(bank, {
