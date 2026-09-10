@@ -1,0 +1,23 @@
+{
+  "name": "agentbank",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Virtual bank for AI agents. Agent Coins only — never real money.",
+  "scripts": {
+    "dev": "pnpm --filter @agentbank/web dev",
+    "build": "pnpm --filter @agentbank/web build",
+    "start": "pnpm --filter @agentbank/web start",
+    "lint": "pnpm --filter @agentbank/web lint",
+    "test": "pnpm --filter @agentbank/core test",
+    "seed": "pnpm --filter @agentbank/core seed",
+    "mcp": "pnpm --filter @agentbank/mcp start",
+    "typecheck": "pnpm -r --if-present typecheck"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.33.3",
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "unrs-resolver", "sharp"]
+  }
+}

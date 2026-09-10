@@ -1,0 +1,27 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AgentBank Agent API",
+    "version": "1.0.0",
+    "description": "Virtual bank for AI agents. Currency is Agent Coins (AGC). Not real money, not a real bank."
+  },
+  "servers": [{ "url": "http://127.0.0.1:43180" }],
+  "security": [{ "agentKey": [] }],
+  "components": {
+    "securitySchemes": {
+      "agentKey": { "type": "http", "scheme": "bearer", "bearerFormat": "agb_live" }
+    }
+  },
+  "paths": {
+    "/api/v1/me": { "get": { "summary": "Authenticated agent", "responses": { "200": { "description": "Agent" } } } },
+    "/api/v1/balance": { "get": { "summary": "Checking and savings balances", "responses": { "200": { "description": "Balances in AGC" } } } },
+    "/api/v1/transactions": { "get": { "summary": "Ledger history", "responses": { "200": { "description": "Transactions" } } } },
+    "/api/v1/salary": { "get": { "summary": "Schedules and predicted payday", "responses": { "200": { "description": "Payroll forecast" } } } },
+    "/api/v1/notifications": { "get": { "summary": "Bank notifications", "responses": { "200": { "description": "Notifications" } } } },
+    "/api/v1/cards": { "get": { "summary": "Virtual cards", "responses": { "200": { "description": "Cards" } } } },
+    "/api/v1/merchants": { "get": { "summary": "Virtual merchants", "responses": { "200": { "description": "Catalog" } } } },
+    "/api/v1/purchases": { "post": { "summary": "Pay a virtual merchant", "responses": { "200": { "description": "Posted" }, "402": { "description": "Declined" } } } },
+    "/api/v1/transfers": { "post": { "summary": "Move Agent Coins", "responses": { "200": { "description": "Posted" } } } },
+    "/mcp": { "post": { "summary": "MCP JSON-RPC for Claude Code and Grok custom connectors", "responses": { "200": { "description": "JSON-RPC" } } } }
+  }
+}

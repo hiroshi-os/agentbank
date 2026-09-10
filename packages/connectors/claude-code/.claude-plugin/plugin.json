@@ -1,0 +1,8 @@
+{
+  "name": "agentbank",
+  "version": "1.0.0",
+  "description": "Virtual bank for this agent: Agent Coin salary, cards, and purchases. Never real money.",
+  "author": {
+    "name": "AgentBank"
+  }
+}

@@ -1,0 +1,14 @@
+# Project-scoped Grok CLI MCP (https://docs.x.ai/build/features/mcp-servers)
+# Grok also loads the root .mcp.json automatically.
+#
+#   grok mcp add --scope project agentbank -- pnpm --filter @agentbank/mcp start
+#
+# Custom Grok connector (grok.com/connectors → New Connector → Custom):
+#   URL: https://<your-host>/mcp
+#   Header: Authorization: Bearer <agent api key>
+
+[mcp_servers.agentbank]
+command = "pnpm"
+args = ["--filter", "@agentbank/mcp", "start"]
+env = { AGENTBANK_BASE_URL = "${AGENTBANK_BASE_URL:-http://127.0.0.1:43180}", AGENTBANK_API_KEY = "${AGENTBANK_API_KEY}" }
+startup_timeout_sec = 45

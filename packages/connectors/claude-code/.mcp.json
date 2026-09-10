@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "agentbank": {
+      "type": "stdio",
+      "command": "pnpm",
+      "args": ["--filter", "@agentbank/mcp", "start"],
+      "env": {
+        "AGENTBANK_BASE_URL": "${AGENTBANK_BASE_URL:-http://127.0.0.1:43180}",
+        "AGENTBANK_API_KEY": "${AGENTBANK_API_KEY}"
+      }
+    }
+  }
+}

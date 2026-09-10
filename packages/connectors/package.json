@@ -1,0 +1,10 @@
+{
+  "name": "@agentbank/connectors",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Claude Code plugin, Grok MCP/function-calling tools, and OpenAPI for AgentBank",
+  "exports": {
+    "./grok/tools": "./grok/tools.json",
+    "./openapi": "./openapi/agentbank.v1.json"
+  }
+}

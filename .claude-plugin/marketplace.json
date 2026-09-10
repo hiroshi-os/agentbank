@@ -1,0 +1,13 @@
+{
+  "name": "agentbank-connectors",
+  "owner": {
+    "name": "AgentBank"
+  },
+  "plugins": [
+    {
+      "name": "agentbank",
+      "source": "./packages/connectors/claude-code",
+      "description": "Let Claude Code check Agent Coin balances, predicted payday, cards, and virtual purchases."
+    }
+  ]
+}
