@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0c0b09;
+  --ink-2: #14120e;
+  --panel: #18160f;
+  --panel-2: #1f1b14;
+  --line: rgba(228, 181, 106, 0.16);
+  --brass: #e4b56a;
+  --brass-2: #c4923f;
+  --paper: #f4ead6;
+  --muted: #9a917f;
+  --danger: #e07a5f;
+  --ok: #8fba7a;
+  --info: #7ea0c4;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-line: var(--line);
+  --color-brass: var(--brass);
+  --color-brass-2: var(--brass-2);
+  --color-paper: var(--paper);
+  --color-muted: var(--muted);
+  --color-danger: var(--danger);
+  --color-ok: var(--ok);
+  --color-info: var(--info);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-fraunces);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html,
+body {
+  background: var(--ink);
+  color: var(--paper);
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  background-image:
+    radial-gradient(1200px 500px at 10% -10%, rgba(228, 181, 106, 0.08), transparent 50%),
+    radial-gradient(900px 400px at 90% 0%, rgba(126, 160, 196, 0.05), transparent 45%);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.serif {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+.hairline {
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.panel {
+  background: linear-gradient(180deg, rgba(255, 244, 220, 0.03), rgba(255, 244, 220, 0.01));
+  border: 1px solid var(--line);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(228, 181, 106, 0.25);
+  border-radius: 99px;
+}

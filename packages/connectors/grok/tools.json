@@ -1,0 +1,90 @@
+[
+  {
+    "type": "function",
+    "name": "get_balance",
+    "description": "Get this agent's AgentBank balances in Agent Coins (AGC). Virtual currency only.",
+    "parameters": { "type": "object", "properties": {}, "additionalProperties": false }
+  },
+  {
+    "type": "function",
+    "name": "get_me",
+    "description": "Identify the authenticated agent, role, and purchase permissions.",
+    "parameters": { "type": "object", "properties": {}, "additionalProperties": false }
+  },
+  {
+    "type": "function",
+    "name": "list_transactions",
+    "description": "List recent AgentBank ledger activity.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "limit": { "type": "integer", "minimum": 1, "maximum": 100 }
+      },
+      "additionalProperties": false
+    }
+  },
+  {
+    "type": "function",
+    "name": "get_salary",
+    "description": "Get stipend/salary schedules and the predicted next payday.",
+    "parameters": { "type": "object", "properties": {}, "additionalProperties": false }
+  },
+  {
+    "type": "function",
+    "name": "list_notifications",
+    "description": "List payday predictions, deposits, and card events.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "unreadOnly": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  },
+  {
+    "type": "function",
+    "name": "list_cards",
+    "description": "List virtual Agent Coin cards. Not valid for real commerce.",
+    "parameters": { "type": "object", "properties": {}, "additionalProperties": false }
+  },
+  {
+    "type": "function",
+    "name": "list_merchants",
+    "description": "List virtual merchants that accept Agent Coins.",
+    "parameters": { "type": "object", "properties": {}, "additionalProperties": false }
+  },
+  {
+    "type": "function",
+    "name": "make_purchase",
+    "description": "Charge a virtual Agent Coin card at a virtual merchant.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "merchantSlug": { "type": "string" },
+        "merchantId": { "type": "string" },
+        "amountAgc": { "type": "number" },
+        "memo": { "type": "string" },
+        "cardId": { "type": "string" }
+      },
+      "required": ["amountAgc"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "type": "function",
+    "name": "transfer",
+    "description": "Move Agent Coins between checking/savings or to another agent handle.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "amountAgc": { "type": "number" },
+        "toHandle": { "type": "string" },
+        "from": { "type": "string", "enum": ["checking", "savings"] },
+        "to": { "type": "string", "enum": ["checking", "savings"] },
+        "memo": { "type": "string" }
+      },
+      "required": ["amountAgc"],
+      "additionalProperties": false
+    }
+  }
+]

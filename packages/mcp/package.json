@@ -1,0 +1,28 @@
+{
+  "name": "@agentbank/mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "agentbank-mcp": "./src/stdio.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./protocol": "./src/protocol.ts",
+    "./tools": "./src/tools.ts"
+  },
+  "scripts": {
+    "start": "tsx src/stdio.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@agentbank/sdk": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.18.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.3"
+  }
+}
