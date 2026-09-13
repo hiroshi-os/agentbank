@@ -79,4 +79,4 @@ Claude Code and Grok both speak **MCP**. That is the connector. Details and sour
 
 ## License
 
-For local and demo use. Do not represent this as a financial product.
+MIT. See [LICENSE](LICENSE). Agent Coins are a local ledger unit, not money — do not represent this as a financial product.
